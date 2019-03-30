@@ -12,9 +12,11 @@
 		3ADD7517224F1990006E9B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7515224F1990006E9B26 /* Main.storyboard */; };
 		3ADD7519224F1991006E9B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7518224F1991006E9B26 /* Assets.xcassets */; };
 		3ADD751C224F1991006E9B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD751A224F1991006E9B26 /* LaunchScreen.storyboard */; };
+		87CC946ADDA506C23015FB75 /* Pods_frigde.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F31FB9812F3D287AE1B1FA /* Pods_frigde.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D52CEE654A29E347BC409C2 /* Pods-frigde.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-frigde.release.xcconfig"; path = "Target Support Files/Pods-frigde/Pods-frigde.release.xcconfig"; sourceTree = "<group>"; };
 		3ADD750E224F1990006E9B26 /* frigde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = frigde.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADD7511224F1990006E9B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADD7513224F1990006E9B26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		3ADD7518224F1991006E9B26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ADD751B224F1991006E9B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ADD751D224F1991006E9B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98F31FB9812F3D287AE1B1FA /* Pods_frigde.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_frigde.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E3172638541B2504FA44AA9 /* Pods-frigde.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-frigde.debug.xcconfig"; path = "Target Support Files/Pods-frigde/Pods-frigde.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CC946ADDA506C23015FB75 /* Pods_frigde.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BF2FA0FAA4BCCF721EEBFB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E3172638541B2504FA44AA9 /* Pods-frigde.debug.xcconfig */,
+				1D52CEE654A29E347BC409C2 /* Pods-frigde.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3ADD7505224F1990006E9B26 = {
 			isa = PBXGroup;
 			children = (
 				3ADD7510224F1990006E9B26 /* frigde */,
 				3ADD750F224F1990006E9B26 /* Products */,
+				0BF2FA0FAA4BCCF721EEBFB2 /* Pods */,
+				57BDD8BC5B4380C120238DDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = frigde;
 			sourceTree = "<group>";
 		};
+		57BDD8BC5B4380C120238DDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98F31FB9812F3D287AE1B1FA /* Pods_frigde.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ADD7520224F1991006E9B26 /* Build configuration list for PBXNativeTarget "frigde" */;
 			buildPhases = (
+				3B1EDD7572503FAE62CC675A /* [CP] Check Pods Manifest.lock */,
 				3ADD750A224F1990006E9B26 /* Sources */,
 				3ADD750B224F1990006E9B26 /* Frameworks */,
 				3ADD750C224F1990006E9B26 /* Resources */,
+				405856412D41E67A2D7496AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +122,7 @@
 				TargetAttributes = {
 					3ADD750D224F1990006E9B26 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -129,6 +156,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B1EDD7572503FAE62CC675A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-frigde-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		405856412D41E67A2D7496AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-frigde/Pods-frigde-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-frigde/Pods-frigde-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3ADD750A224F1990006E9B26 /* Sources */ = {
@@ -280,34 +358,38 @@
 		};
 		3ADD7521224F1991006E9B26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E3172638541B2504FA44AA9 /* Pods-frigde.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WZV4U9HB2;
 				INFOPLIST_FILE = frigde/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GreatLL.frigde;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GreatLL.frigde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3ADD7522224F1991006E9B26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D52CEE654A29E347BC409C2 /* Pods-frigde.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WZV4U9HB2;
 				INFOPLIST_FILE = frigde/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GreatLL.frigde;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GreatLL.frigde;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
