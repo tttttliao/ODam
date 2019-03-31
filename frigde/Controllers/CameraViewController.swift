@@ -125,7 +125,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //sleep(10)
+        sleep(2)
         print("This is prepare")
         if segue.identifier == "goToTags"{
             let destinationVC = segue.destination as! ScannedItemViewController
