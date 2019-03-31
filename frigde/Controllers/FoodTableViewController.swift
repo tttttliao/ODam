@@ -103,7 +103,7 @@ class FoodTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         food = foodList[indexPath.row]
-        cell.lblName.text = food.name
+        cell.lblName.text = food.name?.lowercased()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
