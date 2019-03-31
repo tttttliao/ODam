@@ -16,7 +16,7 @@ class FoodTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var inputMethod = ""
     var returnedFoodName = "initial"
     
-    var array:[String] = ["apple","banana","orange","milk","pineapple","strawberry","watermelon","blueberry","coconut","grape","honeydew","lime","lemon","pear","peach","cherry","mango","kiwi", "egg","fish","yogurt","bean","carrot","cauliflower","cucumber","eggplant","lettuce","onion","tomato","potato","pea","pepper","pumpkin","spinach","pizza","grapefruit","citrus","salad","bacon","sausage","hamburger","fries","leftover","cheese","avocado","jam","juice","hot dog"]
+    var array:[String] = ["apple","banana","orange","milk","pineapple","strawberry","watermelon","blueberry","coconut","grape","honeydew","lime","lemon","pear","peach","cherry","mango","kiwi", "egg","fish","yogurt","bean","carrot","cauliflower","cucumber","eggplant","lettuce","onion","tomato","potato","pea","pepper","pumpkin","spinach","pizza","grapefruit","citrus","salad","bacon","sausage","hamburger","fries","leftover","cheese","avocado","jam","juice","hot dog", "lunch", "dinner", "breakfast", "coffee", "drink", "salmon", "smoked salmon", "sashimi", "bread", "water", "bottled water", "meat", "mushroom", "sandwich", "coke", "soda", "sprite", "garlic", "taco", "burrito", "beef"]
     
     var dict:[String:Int] = [
         "apple":45,"banana":6,"orange":45,"milk":8,"pineapple":4,"strawberry":6,
@@ -25,7 +25,8 @@ class FoodTableViewController: UIViewController, UITableViewDelegate, UITableVie
         "yogurt":8,"bean":7,"carrot":4,"cauliflower":14,"cucumber":7,"eggplant":18,
         "lettuce":7,"onion":45,"tomato":14,"potato":90,"pea":5,"pepper":14, "pumpkin":75,
         "spinach":6,"pizza":6,"grapefruit":14,"citrus":14,"salad":4,"hot dog":7,"bacon":7,
-        "sausage":3,"hamburger":1,"fries":1,"leftover":4,"cheese":90,"avocado":4,"jam":365,"juice":90
+        "sausage":3,"hamburger":1,"fries":1,"leftover":4,"cheese":90,"avocado":4,"jam":365,"juice":90,
+        "lunch":2,"dinner":2,"breakfast":2,"coffee":1,"drink":3,"salmon":2, "smoked salmon":7, "sashimi":1, "bread": 3, "water":10, "bottled water":10, "meat":2, "mushroom": 5, "sandwich":2, "coke":2, "soda":2,"sprite":2, "garlic":10, "taco":1, "burrito":1, "beef":2
     ]
     
     @IBOutlet weak var textFieldName: UITextField!
@@ -86,7 +87,7 @@ class FoodTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func deleteFood(id:String, name:String){
         refFood.child(id).setValue(nil)
-        labelMessage.text = "Food Deleted."
+        labelMessage.text = "\(name) Deleted."
     }
     
     //tableview protocol functions
@@ -185,36 +186,77 @@ class FoodTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let key = refFood.childByAutoId().key
-        
-        if (textFieldExp.text == "" && textFieldName.text != ""){
-            // run dictionary and change foodExp to dict(foodName)
-            
-            
-            
-            if array.contains(textFieldName.text!.lowercased()){
-                // then the expiration date is the matched value getting from dict
-                let pred_exp = dict[textFieldName.text!.lowercased()]
+       
+        if (textFieldName.text == ""){
+            labelMessage.text = "No Food Added"
+        }
+        else {
+            if (textFieldExp.text == ""){
+                // run dictionary and change foodExp to dict(foodName)
+                
+                if array.contains(textFieldName.text!.lowercased()){
+                    // then the expiration date is the matched value getting from dict
+                    let pred_exp = dict[textFieldName.text!.lowercased()]
+                    let food = ["id":key,
+                                "foodName":textFieldName.text! as String,
+                                "foodExp": String(pred_exp!) as String,
+                                "date":formatter.string(from: Date()) as String
+                    ]
+                    refFood.child(key!).setValue(food)
+                    labelMessage.text = "\(textFieldName.text!) Added"
+                }
+                else {
+                    labelMessage.text = "Cannot Find Expiration Date"
+                }
+            }
+                
+            else {
                 let food = ["id":key,
                             "foodName":textFieldName.text! as String,
-                            "foodExp": String(pred_exp!) as String,
-                            "date":formatter.string(from: Date()) as String
-                ]
+                            "foodExp":textFieldExp.text! as String,
+                            "date":formatter.string(from: Date()) as String]
                 refFood.child(key!).setValue(food)
-                labelMessage.text = "Food Added"
+                labelMessage.text = "\(textFieldName.text!) Added"
+                if !array.contains(textFieldName.text!.lowercased()){
+                     array.append(textFieldName.text!.lowercased())
+                }
+                dict[textFieldName.text!.lowercased()] = Int(textFieldExp.text!)
             }
-            else {
-                labelMessage.text = "Cannot Find Expiration Date"
-            }
-            
-        } else {
-            let food = ["id":key,
-                        "foodName":textFieldName.text! as String,
-                        "foodExp":textFieldExp.text! as String,
-                        "date":formatter.string(from: Date()) as String]
-            refFood.child(key!).setValue(food)
-            labelMessage.text = "Food Added"
         }
     }
+        
+//        if (textFieldName.text == ""){
+//            labelMessage.text = "No Food Added"
+//        }
+//        else {
+//            if array.contains(textFieldName.text!.lowercased()){
+//                // then the expiration date is the matched value getting from dict
+//                let pred_exp = dict[textFieldName.text!.lowercased()]
+//                let food = ["id":key,
+//                            "foodName":textFieldName.text! as String,
+//                            "foodExp": String(pred_exp!) as String,
+//                            "date":formatter.string(from: Date()) as String
+//                ]
+//                refFood.child(key!).setValue(food)
+//                labelMessage.text = "\(textFieldName.text!) Added"
+//            }
+//            else {
+//                labelMessage.text = "Cannot Find Expiration Date"
+//            }
+//
+//        }
+//        else {
+//            let food = ["id":key,
+//                        "foodName":textFieldName.text! as String,
+//                        "foodExp":textFieldExp.text! as String,
+//                        "date":formatter.string(from: Date()) as String]
+//            refFood.child(key!).setValue(food)
+//            labelMessage.text = "\(textFieldName.text!) Added"
+//        }
+//        }
+//
+        
+    
     
     // when camera is pressed
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
