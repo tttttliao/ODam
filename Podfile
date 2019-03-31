@@ -9,5 +9,8 @@ target 'frigde' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
+    pod 'Firebase/Database'
+    pod 'Firebase/Core'
+    pod 'SwipeCellKit'
 
 end
